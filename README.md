@@ -211,7 +211,7 @@ If you prefer to run the project locally:
 1. Clone the repository:
 
 ````
-git clone https://github.com/Silvano315/Flower-Recognition-and-Detection-with-PyTorch.gits
+git clone [https://github.com/](https://github.com/shubhamkr1/FlowerCNN.git)
 ````
 
 2. Install the required dependencies:
