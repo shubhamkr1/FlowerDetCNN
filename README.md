@@ -9,19 +9,12 @@
 - [Transfer Learning with timm](#transfer-learning-with-timm)
   - [Model Architecture](#transfer-learning-model-architecture)
   - [Results of Transfer Learning](#results-of-transfer-learning)
-- [Object Detection with YOLO](#object-detection-with-yolo)
-  - [Implementation](#implementation)
-  - [Results of Object Detection](#results-of-object-detection)
 - [Key Insights](#key-insights)
 - [How to Run](#how-to-run)
-- [Interactive Results Visualization](#interactive-results-visualization)
 
 
 ## 🌟 Project Overview
-
-This repository is the seventh project of the master's degree in AI Engineering with [Profession AI](https://profession.ai), all the credits for the requests and idea go to this team. 
-
-GreenTech Solutions Ltd., a pioneer in the agritech industry, is faced with the critical need to implement an advanced automatic flower recognition system within its daily operations. GreenTech Solutions Ltd. has started a strategic initiative to develop a prototype AI-based Computer Vision model for automatic flower recognition.
+Company ABC, a pioneer in the agritech industry, is faced with the critical need to implement an advanced automatic flower recognition system within its daily operations. ABC has started a strategic initiative to develop a prototype AI-based Computer Vision model for automatic flower recognition.
 
 Project Benefits:
 - Increased Productivity
@@ -32,7 +25,7 @@ The main goal is to develop a highly robust model, capable of automatically clas
 - Augmentation Strategies: implement different augmentation techniques to enrich the dataset, improving data variability and quality.
 - Network Architectures and Transfer Learning: select and implement one or more neural network architectures wiht PyTorch's timm library, using transfer learning to exploit pre-trained models.
 - Validation and Regularization: retraining with validation and regularization techniques to improve the model performance.
-- Object detection: this part has to be done using YOLO models and supervsion library from Roboflow.
+- Object detection: this part has to be done using YOLO models and supervision library from Roboflow.
 
 ## 🍽️ Dataset
 
@@ -60,13 +53,6 @@ Key features:
 - Plotting of training history
 - JSON export of final results
 
-### Callback System
-
-I've implemented a callback system inspired by Keras, allowing for flexible control of the training process:
-
-1. **EarlyStopping**: Prevents overfitting by stopping training when a monitored metric has stopped improving.
-2. **ModelCheckpoint**: Saves the best model based on a specified metric.
-3. **ReduceLROnPlateau**: Reduces learning rate when a metric has stopped improving.
 
 ### Model Architecture
 
@@ -183,46 +169,9 @@ Key observations:
 - Misclassified images are few, but when you view them with the ground truth you can understand that the models mistake images of flowers taken from below, very small flowers with a lot of background and confuse completely yellow Dandelion with Daisy.
 
 
-## 📦 Object Detection with YOLO
 
-### Implementation
 
-The object detection implementation heavily leveraged [Roboflow](https://roboflow.com/), an incredible platform that has revolutionized computer vision workflows. Roboflow deserves a special mention for their contributions to the computer vision community:
 
-- Comprehensive tools for dataset preparation and annotation
-- Excellent documentation and educational resources
-- Popular `supervision` package for computer vision tasks
-- High-quality YouTube tutorials and live sessions
-- Active community support
-
-The implementation process followed these steps:
-
-1. Dataset Creation with Roboflow:
-   - Selected 160 images from the classification dataset (80 per class)
-   - Manual annotation using Roboflow's intuitive interface
-   - Automatic dataset splitting into train/val/test sets
-   - Export in YOLOv11-ready format
-
-2. Model Training:
-   - Project ID: flowers-object-detection-zscwu
-   - Dataset accessible at: [Flowers Object Detection Dataset](https://universe.roboflow.com/silvano-9j4jy/flowers-object-detection-zscwu/dataset/1)
-   - Following Profession AI's guidance for YOLOv11 implementation
-
-### Results of Object Detection
-
-While the object detection component was primarily a proof-of-concept using a small dataset, the results were remarkably good. This demonstrates how modern tools like Roboflow and YOLO can achieve impressive results even with limited data.
-
-![Object Detection Example](results_from_detection/test_results_img/result_7.jpg)
-*Example of model inference showing bounding box and classification*
-
-The confusion matrix (available in the [`train3`](results_from_detection/train3/confusion_matrix_normalized.png) folder) shows near-perfect detection and classification performance. However, it's important to note that this high performance is partly due to the small, carefully curated dataset and controlled conditions. The main value of this implementation lies in demonstrating the complete workflow:
-
-1. Transitioning from a classification dataset to object detection
-2. Utilizing modern tools for dataset preparation
-3. Implementing state-of-the-art models
-4. Achieving production-ready results efficiently
-
-This proof-of-concept successfully shows how to extend a classification project to include object detection capabilities, providing a template for larger-scale implementations.
 
 ## 🎯 Key Insights
 
@@ -276,28 +225,4 @@ pip install -r requirements.txt
 The notebook includes a cell for dataset download and extraction using the `extract_dataset` function from [`utils.py`](src/utils.py). This will automatically handle the dataset setup for you.
 
 
-## 📊 Interactive Results Visualization
-
-This project includes comprehensive interactive HTML reports generated using DataPane for enhanced visualization and analysis of model performance. The reports provide:
-
-- **Model Performance Metrics**
-  - Interactive training and validation curves
-  - Real-time metric exploration
-  - Learning rate evolution visualization
-
-- **Confusion Matrix Analysis**
-  - Interactive confusion matrix
-  - Class-wise prediction distribution
-  - Hover capabilities for detailed information
-
-- **Performance Summary**
-  - Best validation accuracy
-  - Best F1 score
-  - Final model metrics
-  - Training progress visualization
-
-- **Dataset Insights**
-  - Number of classes
-  - Class distribution
-  - Total predictions analysis
 
